@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PERI Srbija - Predlog za QuickSolve Vidžet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for PERI branding */
+    .peri-yellow { background-color: #ffc300; }
+    .peri-red { color: #dc0032; border-color: #dc0032; }
+    .peri-pink { background-color: #f4adbd; }
+    .peri-red-text { color: #dc0032; }
+    .peri-yellow-text { color: #ffc300; }
+    .hover\:peri-red:hover { background-color: #dc0032; }
+    /* Slider styles */
+    .slider-container { position: relative; overflow: hidden; width: 100%; }
+    .slider-wrapper { display: flex; transition: transform 0.3s ease-in-out; }
+    .slide { flex: 0 0 100%; display: flex; align-items: center; justify-content: space-between; padding: 1rem; background-color: #f3f4f6; border-radius: 0.375rem; position: relative; }
+    .slide-content { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex: 1; }
+    .prev-slide, .next-slide { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      width: 2rem; 
+      height: 2rem; 
+      background-color: #e5e7eb; 
+      border-radius: 9999px; 
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+      transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+    .prev-slide { position: absolute; left: 0.5rem; top: 30%; transform: translateY(-50%); background-color: #ffe3e9;}
+    .next-slide { position: absolute; right: 0.5rem; top: 30%; transform: translateY(-50%); background-color: #ffe3e9;}
+    .prev-slide:hover, .next-slide:hover { 
+      background-color: #dc0032; 
+    }
+    .prev-slide:hover svg, .next-slide:hover svg { 
+      stroke: #ffffff; 
+    }
+    .prev-slide:disabled, .next-slide:disabled { 
+      background-color: #d1d5db; 
+      cursor: not-allowed; 
+    }
+    .prev-slide:disabled svg, .next-slide:disabled svg { 
+      stroke: #6b7280; 
+    }
+    /* Grid styles for supported systems */
+    .systems-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    @media (max-width: 640px) {
+      .systems-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-white shadow-md py-4">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold peri-red-text">Predlog za PERI QuickSolve Vidžet</h1>
+      <p class="text-lg text-gray-600">Povećajte angažovanost korisnika sa inovativnim sticky dugmetom i slide-in panelom</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <!-- Introduction Section -->
+    <section class="mb-8 bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold peri-red-text mb-4">Zašto implementirati QuickSolve vidžet?</h2>
+      <p class="text-gray-700 mb-4">Vaša nova web aplikacija, PERI QuickSolve, revolucionarno je rešenje za brzu i efikasnu izradu planova oplate i skela. Međutim, da biste maksimizirali njenu vidljivost i angažovanost korisnika, ključno je efikasno komunicirati njene prednosti posetiocima vašeg sajta. Predloženi sticky dugme i slide-in panel nude elegantno i korisnički orijentisano rešenje za to.</p>
+      <p class="text-gray-700 mb-4">Ovaj vidžet može se lako integrisati na vašu početnu stranu, omogućavajući korisnicima da odmah saznaju o prednostima QuickSolve-a, poput brze registracije, automatski generisanih rešenja i podrške za različite sisteme oplate. Ovo povećava verovatnoću da posetioci isprobaju aplikaciju i registruju se, čime se podstiče usvajanje i korišćenje.</p>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="mb-8 bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold peri-red-text mb-4">Ključne prednosti vidžeta</h2>
+      <ul class="list-disc pl-5 text-gray-700 mb-4 space-y-2">
+        <li><strong>Povećana vidljivost:</strong> Sticky dugme ostaje vidljivo dok korisnici skroluju, osiguravajući da uvek imaju lak pristup informacijama o QuickSolve-u.</li>
+        <li><strong>Interaktivno korisničko iskustvo:</strong> Slide-in panel sadrži slajder sa vizuelnim i tekstualnim objašnjenjima prednosti aplikacije, čineći informacije lako razumljivim i privlačnim.</li>
+        <li><strong>Brza komunikacija vrednosti:</strong> Panel jasno ističe ključne funkcionalnosti, poput podržanih sistema (MAXIMO, TRIO, DUO, DOMINO) i besplatne registracije, što olakšava korisnicima da shvate zašto je QuickSolve vredan.</li>
+        <li><strong>Brend konzistentnost:</strong> Dizajn koristi PERI boje (#dc0032, #f4adbd, #ffc300) i moderan izgled, usklađen sa vašim brendom.</li>
+        <li><strong>Povećanje konverzija:</strong> Jasan poziv na akciju ("Registrujte se sada") u panelu vodi korisnike direktno ka registraciji, povećavajući stopu konverzije.</li>
+        <li><strong>Jednostavna integracija:</strong> Vidžet je lagan, responsivan i kompatibilan sa modernim pretraživačima (Chrome, Edge), što olakšava implementaciju na vašem sajtu.</li>
+      </ul>
+    </section>
+
+    <!-- Implementation Section -->
+    <section class="mb-8 bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold peri-red-text mb-4">Kako vidžet unapređuje vašu početnu stranu</h2>
+      <p class="text-gray-700 mb-4">Postavljanjem ovog vidžeta na vašu početnu stranu, PERI Srbija može odmah privući pažnju posetilaca na QuickSolve aplikaciju. Sticky dugme je nenametljivo, ali uvek prisutno, podstičući korisnike da istraže aplikaciju bez ometanja njihovog iskustva na sajtu. Slide-in panel pruža sve potrebne informacije na jednom mestu, sa interaktivnim elementima poput slajdera i mreže podržanih sistema, što olakšava razumevanje vrednosti aplikacije.</p>
+      <p class="text-gray-700 mb-4">Ovaj pristup ne samo da poboljšava korisničko iskustvo, već i jača percepciju PERI-ja kao inovativnog lidera u građevinskoj industriji. Implementacija vidžeta može dovesti do većeg angažmana korisnika, više registracija i, u konačnici, većeg uspeha QuickSolve aplikacije.</p>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="mb-8 bg-white p-6 rounded-lg shadow-md text-center">
+      <h2 class="text-2xl font-bold peri-red-text mb-4">Sledeći koraci</h2>
+      <p class="text-gray-700 mb-4">Poštovani predstavnici PERI-ja, pozivam vas da razmotrite implementaciju ovog sticky dugmeta i slide-in panela na vašoj početnoj strani kako biste maksimizirali uticaj PERI QuickSolve aplikacije. Za dalje diskusije o integraciji, prilagođavanju ili dodatnim funkcionalnostima, slobodno me kontaktirajte.</p>
+      <p class="text-gray-700 mb-2">E-pošta: <a href="mailto:notoolsnocraft@gmail.com" class="text-blue-600 hover:underline">notoolsnocraft@gmail.com</a></p>
+      <p class="text-gray-700">LinkedIn: <a href="https://www.linkedin.com/in/petar-skrbic/" class="text-blue-600 hover:underline">https://www.linkedin.com/in/petar-skrbic/</a></p>
+    </section>
+  </main>
+
+  <!-- Sticky Button -->
+  <button id="quicksolve-btn" class="fixed bottom-4 right-4 peri-yellow text-black border-2 peri-red px-6 py-3 rounded-full shadow-lg hover:peri-red hover:text-white transition z-50 flex items-center gap-2">
+    <span>Brza izrada<br> planova oplate</span>
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+
+  <!-- Slide-in Panel -->
+  <div id="quicksolve-panel" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+    <div class="p-6 h-full overflow-y-auto" style="text-shadow: 0 0 black">
+      <!-- Close Button -->
+      <button id="close-panel" class="absolute top-4 right-4 peri-red-text hover:peri-yellow-text">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Panel Content -->
+      <h2 class="text-2xl font-bold peri-red-text mb-4 text-center">PERI QuickSolve</h2>
+      <p class="text-gray-600 mb-6">Brza i jednostavna izrada planova oplate i skela za vaše građevinske projekte.</p>
+
+      <h3 class="text-lg font-semibold peri-red-text mb-2">Vaše prednosti:</h3>
+      <div class="slider-container mb-6">
+        <div class="slider-wrapper">
+          <!-- Slide 1 -->
+          <div class="slide">
+            <button class="prev-slide text-gray-600" disabled>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <div class="slide-content">
+              <svg class="w-8 h-8 peri-red-text mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-600">Brza i jednostavna registracija</span>
+            </div>
+            <button class="next-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Slide 2 -->
+          <div class="slide">
+            <button class="prev-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <div class="slide-content">
+              <svg class="w-8 h-8 peri-red-text mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <span class="text-gray-600">Direktna izrada plana oplate u nekoliko koraka</span>
+            </div>
+            <button class="next-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Slide 3 -->
+          <div class="slide">
+            <button class="prev-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <div class="slide-content">
+              <svg class="w-8 h-8 peri-red-text mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-600">Automatski generisana rešenja</span>
+            </div>
+            <button class="next-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Slide 4 -->
+          <div class="slide">
+            <button class="prev-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <div class="slide-content">
+              <svg class="w-8 h-8 peri-red-text mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+              </svg>
+              <span class="text-gray-600">Izrada plana na osnovu vaše opreme</span>
+            </div>
+            <button class="next-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Slide 5 -->
+          <div class="slide">
+            <button class="prev-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <div class="slide-content">
+              <svg class="w-8 h-8 peri-red-text mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m0-2v-2m0-2V7m6 10v-2m0-2v-2m0-2V7"></path>
+              </svg>
+              <span class="text-gray-600">Precizne specifikacije elemenata</span>
+            </div>
+            <button class="next-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Slide 6 -->
+          <div class="slide">
+            <button class="prev-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <div class="slide-content">
+              <svg class="w-8 h-8 peri-red-text mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span class="text-gray-600">Izvoz planova u 2D i 3D</span>
+            </div>
+            <button class="next-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Slide 7 -->
+          <div class="slide">
+            <button class="prev-slide text-gray-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <div class="slide-content">
+              <svg class="w-8 h-8 peri-red-text mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a2 2 0 00-2-2h-3m-2 4H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V16a2 2 0 01-2 2h-3"></path>
+              </svg>
+              <span class="text-gray-600">Saradnja sa drugim korisnicima</span>
+            </div>
+            <button class="next-slide text-gray-600" disabled>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-lg font-semibold peri-red-text mb-2">Podržani sistemi oplata:</h3>
+      <div class="systems-grid mb-6">
+        <div class="text-gray-600 p-4 bg-gray-100 rounded-md text-center font-bold">MAXIMO 270 MX 15</div>
+        <div class="text-gray-600 p-4 bg-gray-100 rounded-md text-center font-bold">TRIO 270</div>
+        <div class="text-gray-600 p-4 bg-gray-100 rounded-md text-center font-bold">DUO 135</div>
+        <div class="text-gray-600 p-4 bg-gray-100 rounded-md text-center font-bold">DOMINO 250</div>
+      </div>
+
+      <h3 class="text-lg font-semibold peri-red-text mb-2">Opšte informacije:</h3>
+      <ul class="list-disc pl-5 text-gray-600 mb-6 space-y-2">
+        <li>Registracija: Besplatna</li>
+        <li>Dostupnost: 24/7</li>
+        <li>Web aplikacija: ✔ (online, bez instalacije)</li>
+        <li>Pretraživači: Google Chrome, Microsoft Edge (aktuelna verzija)</li>
+        <li>Jezici: Engleski, Nemački</li>
+        <li>Merne jedinice: mm, cm, m, in</li>
+        <li>Podrška: <br>Zidovi ✔ | Ploče ✘ | Temelji ✘ | Skela ✘</li>
+      </ul>
+
+      <div class="flex justify-center">
+        <a href="https://periworld.b2clogin.com/periworld.onmicrosoft.com/b2c_1a_siupin/oauth2/v2.0/authorize?client_id=53dada3e-dfe9-4df4-aa50-fa0c391adccb&scope=openid%20profile%20offline_access%20https%3A%2F%2Fperiworld.onmicrosoft.com%2Fquicksolve%2Fuser_impersonation&redirect_uri=https%3A%2F%2Fquicksolve.peri.app&client-request-id=01992964-3417-7d02-9680-676f47debdc6&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.27.0&client_info=1&code_challenge=mzM8GiKbW0jaHcaMspCoRCYTzvbg-lmdShqWCXVbxM4&code_challenge_method=S256&nonce=01992964-3419-7a9b-8615-2a7611304ebb&state=eyJpZCI6IjAxOTkyOTY0LTM0MTgtNzQxOS1hY2EwLTI1ZDhmMTM4YjVjYiIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D" 
+           class="inline-block peri-yellow text-black border-2 peri-red px-6 py-3 rounded-md hover:peri-red hover:text-white transition text-center">
+          Registrujte se sada
+        </a>
+      </div>
+
+      <p class="text-gray-600 mt-6">Vaše mišljenje nam je važno! Isprobajte PERI QuickSolve i pošaljite povratne informacije direktno našem timu unutar aplikacije.</p>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('quicksolve-btn');
+    const panel = document.getElementById('quicksolve-panel');
+    const closeBtn = document.getElementById('close-panel');
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const slides = document.querySelectorAll('.slide');
+    const prevButtons = document.querySelectorAll('.prev-slide');
+    const nextButtons = document.querySelectorAll('.next-slide');
+
+    // Panel toggle functionality
+    if (typeof window !== 'undefined') {
+      btn.addEventListener('click', () => {
+        panel.classList.toggle('translate-x-full');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        panel.classList.add('translate-x-full');
+      });
+
+      // Slider functionality
+      let currentSlide = 0;
+
+      function updateSlide() {
+        sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+        prevButtons.forEach(button => button.disabled = currentSlide === 0);
+        nextButtons.forEach(button => button.disabled = currentSlide === slides.length - 1);
+      }
+
+      prevButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (currentSlide > 0) {
+            currentSlide--;
+            updateSlide();
+          }
+        });
+      });
+
+      nextButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            updateSlide();
+          }
+        });
+      });
+
+      // Initialize slider
+      updateSlide();
+    } else {
+      console.error('JavaScript is disabled. Please enable JavaScript to use this feature.');
+    }
+  </script>
+</body>
+</html>
